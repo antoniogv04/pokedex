@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="estilos/style.css">
+    <script src="script.js" type="text/javascript" defer></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="titulo">PokeDex</div>
+    <form action="" onsubmit="searchPokemon(event)">
+        <input type="text" name="pokemon" autocomplete="off">
+        <input type="image" src="fotos/boton.png" alt="Submit" width="70" height="60">
+    </form>
+    <div id="poke_container" class="poke-container"></div>
+    <div data-poke-img-container class="img-container">
+        <img data-poke-img class="poke-img" src="./poke-shadow.png"/>
+    </div>
+
+    <div class="social-panel-container">
+        <div class="social-panel">
+            <p>Created with <i class="fa fa-heart"></i> by
+                <a target="_blank" href="https://florin-pop.com">Florin Pop</a></p>
+            <button class="close-btn"><i class="fas fa-times"></i></button>
+            <h4>Get in touch on</h4>
+        </div>
+    </div>
+</body>
+</html>
