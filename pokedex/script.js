@@ -9,7 +9,7 @@ const searchPokemon = event => {
         .catch(err => renderNotFound())
 }
 
-const pokemons_number = 150;
+const pokemons_number = 151;
 const colors = {
 	fire: '#FDDFDF',
 	grass: '#DEFDE0',
