@@ -13,6 +13,11 @@ $(document).ready(function() {
         var $pokemonCard = $('<div>').addClass('pokemon-card');
         var $pokemonImage = $('<img>').attr('src', pokemon.sprites.front_default);
         var $pokemonName = $('<h2>').text(toTitleCase(pokemon.name));
+        const $pokemonId = `
+        <span class="number">#${pokemon.id
+            .toString()
+            .padStart(3, '0')}</span>
+        `
         var $pokemonTypeList = $('<ul>').addClass('pokemon-types');
         pokemon.types.forEach(function(type) {
             var $pokemonType = $('<li>').addClass(`type ${type.type.name}`).text(type.type.name);
@@ -23,7 +28,7 @@ $(document).ready(function() {
             var $pokemonStat = $('<li>').text(`${stat.stat.name}: ${stat.base_stat}`);
             $pokemonStatsList.append($pokemonStat);
         });
-        $pokemonCard.append($pokemonImage, $pokemonName, $pokemonTypeList, $pokemonStatsList);
+        $pokemonCard.append($pokemonImage, $pokemonName, $pokemonId, $pokemonTypeList, $pokemonStatsList);
         $('#pokedex').append($pokemonCard);
     }
     const pokemonCards = document.querySelectorAll('.pokemon-card');
