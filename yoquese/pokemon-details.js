@@ -11,31 +11,56 @@ function fetchPokemonDetails(pokemonName) {
         console.log(`Error fetching Pokémon details: ${error}`);
       });
   }
-function displayPokemonDetails(pokemon) {
-    const nameElement = document.getElementById('pokemon-name');
-    nameElement.textContent = pokemon.name;
-
-    const imageElement = document.getElementById('pokemon-image');
-    imageElement.src = pokemon.image;
-    imageElement.alt = pokemon.name;
-
-    const idElement = document.getElementById('pokemon-id');
-    idElement.textContent = pokemon.id.toString().padStart(3, '0');
-
-    const typesElement = document.getElementById('pokemon-types');
-    typesElement.textContent = pokemon.types.join(', ');
-
-    const heightElement = document.getElementById('pokemon-height');
-    heightElement.textContent = pokemon.height / 10;
-
-    const weightElement = document.getElementById('pokemon-weight');
-    weightElement.textContent = pokemon.weight / 10;
-
-    const abilitiesElement = document.getElementById('pokemon-abilities');
-    abilitiesElement.innerHTML = '';
-    pokemon.abilities.forEach(ability => {
-        const li = document.createElement('li');
-        li.textContent = ability;
-        abilitiesElement.appendChild(li);
-    });
-}
+  let pokemonImage = document.createElement("img");
+  pokemonImage.src = data.sprites.front_default;
+  
+  let pokemonName = document.createElement("h2");
+  pokemonName.textContent = data.name;
+  
+  let pokemonNumber = document.createElement("p");
+  pokemonNumber.textContent = `Número en la Pokédex: ${data.id}`;
+  
+  let pokemonTypes = document.createElement("p");
+  pokemonTypes.textContent = "Tipo o tipos: ";
+  data.types.forEach(type => {
+    let typeSpan = document.createElement("span");
+    typeSpan.textContent = type.type.name;
+    typeSpan.classList.add(type.type.name);
+    pokemonTypes.appendChild(typeSpan);
+  });
+  
+  let pokemonWeight = document.createElement("p");
+  pokemonWeight.textContent = `Peso en kilogramos: ${data.weight / 10}`;
+  
+  let pokemonHeight = document.createElement("p");
+  pokemonHeight.textContent = `Altura en metros: ${data.height / 10}`;
+  
+  let stats = data.stats.map(stat => {
+    return {
+      name: stat.stat.name,
+      value: stat.base_stat
+    }
+  });
+  
+  let pokemonStats = document.createElement("div");
+  pokemonStats.classList.add("pokemon-stats");
+  stats.forEach(stat => {
+    let statContainer = document.createElement("div");
+    statContainer.classList.add("stat-container");
+  
+    let statName = document.createElement("span");
+    statName.textContent = stat.name;
+    statContainer.appendChild(statName);
+  
+    let statValue = document.createElement("span");
+    statValue.textContent = stat.value;
+    statContainer.appendChild(statValue);
+  
+    let statBar = document.createElement("span");
+    statBar.classList.add("stat-bar");
+    statBar.style.width = `${stat.value / 2}%`;
+    statContainer.appendChild(statBar);
+  
+    pokemonStats.appendChild(statContainer);
+  });
+  
