@@ -5,16 +5,13 @@
     align-items: flex-start;
   }
 .pokemon-card {
-    width: calc(33.33% - 30px);
-    margin-right: 20px;
+    wwidth: calc(33.33% - 20px);
     margin-bottom: 20px;
-    display: inline-block;
-    vertical-align: top;
-    text-align: center;
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-    border-radius: 4px;
-    overflow: hidden;
+    background-color: #eee;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
 }
 .search-container {
     margin-bottom: 20px;
