@@ -64,7 +64,10 @@ pokemonCards.forEach(card => {
     
 });
 
-$pokemonCard.addEventListener("click", mostrarDetalle);
+div.onclick = function() {
+    mostrarDetalle(tarjeta.id);
+  };
+  pokemonNumbers.appendChild(div);
 
 
 
