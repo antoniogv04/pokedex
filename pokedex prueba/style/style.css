@@ -6,12 +6,12 @@ body {
 }
 @font-face {
     font-family: 'Pokemon';
-    src: url('Pokemon Hollow.ttf') format('truetype');
+    src: url('PokemonHollow.ttf') format('truetype');
     font-style: normal;
     font-weight: normal;
   }
 
-.pokemon{
+h1{
     font-family: 'Pokemon'
 }
 
