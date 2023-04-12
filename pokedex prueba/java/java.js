@@ -30,6 +30,8 @@ $(document).ready(function() {
         });
         $pokemonCard.append($pokemonImage, $pokemonName, $pokemonId, $pokemonTypeList, $pokemonStatsList);
         $('#pokedex').append($pokemonCard);
+
+       
     }
     const pokemonCards = document.querySelectorAll('.pokemon-card');
 
@@ -64,16 +66,3 @@ pokemonCards.forEach(card => {
     
 });
 
-div.onclick = function() {
-    mostrarDetalle(tarjeta.id);
-  };
-  pokemonNumbers.appendChild(div);
-
-
-
-function mostrarDetalle(event) {
-    // Obtener el ID de la tarjeta que se ha hecho clic
-    const pokemonId = event.target.id;
-  
-    // Redireccionar a otra página con la información detallada de la tarjeta
-    window.location.href = "pokemon.html?id=" + pokemonId;}

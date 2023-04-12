@@ -22,6 +22,7 @@ function displayPokemon(pokemon) {
         <p>#${pokemon.id.toString().padStart(3, '0')}</p>
     `;
     container.appendChild(pokemonCard);
+    
 
     pokemonCard.addEventListener('click', () => {
         window.location.href = `pokemon-details.html?id=${pokemon.id}`;

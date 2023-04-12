@@ -1,5 +1,5 @@
 function fetchPokemonDetails(pokemonName) {
-    const url = `https://pokeapi.co/api/v2/pokemon/${pokemonName}`;
+    const url = `https://pokeapi.co/api/v2/pokemon/${pokemonId}`;
   
     fetch(url)
       .then(response => response.json())
@@ -80,7 +80,7 @@ function fetchPokemonDetails(pokemonName) {
   });
 
 // Obtener el ID del Pokémon deseado
-const pokemonId = 25; // Pikachu
+
 
 // Hacer una solicitud a la API de PokéAPI para obtener la información del Pokémon
 fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonId}`)
