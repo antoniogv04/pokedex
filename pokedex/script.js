@@ -15,23 +15,23 @@ searchInput.addEventListener('input', searchPokemonByName);
 
 const pokemons_number = 151;
 const colors = {
-	fire: '#F08030',
-	grass: '#78c850',
-	electric: '#F8D030',
-	water: '#6890F0',
-	ground: '#E0C068',
-	rock: '#B8A038',
-	fairy: '#EE99AC',
-	poison: '#A040A0',
-	bug: '#A8B820',
-	dragon: '#97b3e6',
-	psychic: '#F85888',
-	flying: '#A890F0',
-	fighting: '#C03028',
+	fuego: '#F08030',
+	planta: '#78c850',
+	eléctrico: '#F8D030',
+	agua: '#6890F0',
+	tierra: '#E0C068',
+	roca: '#B8A038',
+	hada: '#EE99AC',
+	veneno: '#A040A0',
+	bicho: '#A8B820',
+	dragón: '#97b3e6',
+	psíquico: '#F85888',
+	volador: '#A890F0',
+	lucha: '#C03028',
 	normal: '#A8A878',
-	steel: '#B8B8D0',
-	ice: '#98D8D8',
-	ghost: '#705898'
+	acero: '#B8B8D0',
+	hielo: '#98D8D8',
+	fantasma: '#705898'
 
 };
 const main_types = Object.keys(colors);
@@ -58,16 +58,71 @@ function createPokemonCard(pokemon) {
 		window.location.href = `pokemon.html?id=${pokemon.id}`;
 	});
 	
+	
+	function tipoTraducido(type){
+		if(type == "fire"){
+			return "fuego";
+		}
+		else if(type == "grass"){
+			return "planta";
+		}
+		else if(type == "electric"){
+			return "eléctrico";
+		}
+		else if(type == "water"){
+			return "agua";
+		}
+		else if(type == "ground"){
+			return "tierra";
+		}
+		else if(type == "rock"){
+			return "roca";
+		}
+		else if(type == "fairy"){
+			return "hada";
+		}
+		else if(type == "poison"){
+			return "veneno";
+		}
+		else if(type == "bug"){
+			return "bicho";
+		}
+		else if(type == "dragon"){
+			return "dragón";
+		}
+		else if(type == "psychic"){
+			return "psíquico";
+		}
+		else if(type == "flying"){
+			return "volador";
+		}
+		else if(type == "fighting"){
+			return "lucha";
+		}
+		else if(type == "normal"){
+			return "normal";
+		}
+		else if(type == "steel"){
+			return "acero";
+		}
+		else if(type == "ice"){
+			return "hielo";
+		}
+		else if(type == "ghost"){
+			return "fantasma";
+		}
+	}
 
 	const poke_types = pokemon.types.map(type => type.type.name);
 	const types = poke_types.map(type => {
 		
 	});
+	
 	const type = main_types.find(type => types.indexOf(type) > -1);
 	const typeHTML = poke_types.map(
-		type => `<small class="type rounded" style="background-color: ${colors[type]}"><span>${type}</span></small>`
+		type => `<small class="type rounded" style="background-color: ${colors[tipoTraducido(type)]}"><span>${tipoTraducido(type)}</span></small>`
 	).join('');
-
+	
 	const name = pokemon.name[0].toUpperCase() + pokemon.name.slice(1);
 
 	const pokeInnerHTML = `

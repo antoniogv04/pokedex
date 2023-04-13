@@ -3,13 +3,13 @@ const pokemonId = new URLSearchParams(window.location.search).get('id');
 
 function renderPokemonDetails(pokemon, species) {
   const pokemonHTML = `
-  <h2>${pokemon.name}</h2>
+  <div class="data-poke-conteiner"><h2>${pokemon.name}</h2>
   <img src="${pokemon.sprites.front_default}" alt="${pokemon.name}" />
-  <p>Height: ${pokemon.height}</p>
-  <p>Weight: ${pokemon.weight}</p>
-  <p>Number: ${pokemon.id.toString().padStart(3, '0')}</p>
-  <p>Types: ${pokemon.types.map(t => t.type.name).join(', ')}</p>
-  <p>Stats:</p>
+  <p>altura: ${pokemon.height/10} M</p>
+  <p>peso: ${pokemon.weight/10} Kg</p>
+  <p>numero: #${pokemon.id.toString().padStart(3, '0')}</p>
+  <p>tipos: ${pokemon.types.map(t => tipoTraducido(t.type.name)).join(', ')}</p>
+  <p>stadisticas:</p>
   ${pokemon.stats.map(s => `
     <div>
       <span>${s.stat.name}: </span>
@@ -17,11 +17,65 @@ function renderPokemonDetails(pokemon, species) {
       <div class="stat-bar" style="width: ${s.base_stat / 2}%"></div>
     </div>
   `).join('')}
-    <h3>Evolutions:</h3>
+    <h3>evoluciones:</h3>
     ${renderEvolutionChain(species)}
   `;
   pokemonContainer.innerHTML = pokemonHTML;
 }
+
+function tipoTraducido(type){
+  if(type == "fire"){
+    return "fuego";
+  }
+  else if(type == "grass"){
+    return "planta";
+  }
+  else if(type == "electric"){
+    return "eléctrico";
+  }
+  else if(type == "water"){
+    return "agua";
+  }
+  else if(type == "ground"){
+    return "tierra";
+  }
+  else if(type == "rock"){
+    return "roca";
+  }
+  else if(type == "fairy"){
+    return "hada";
+  }
+  else if(type == "poison"){
+    return "veneno";
+  }
+  else if(type == "bug"){
+    return "bicho";
+  }
+  else if(type == "dragon"){
+    return "dragón";
+  }
+  else if(type == "psychic"){
+    return "psíquico";
+  }
+  else if(type == "flying"){
+    return "volador";
+  }
+  else if(type == "fighting"){
+    return "lucha";
+  }
+  else if(type == "normal"){
+    return "normal";
+  }
+  else if(type == "steel"){
+    return "acero";
+  }
+  else if(type == "ice"){
+    return "hielo";
+  }
+  else if(type == "ghost"){
+    return "fantasma";
+  }
+  }
 
 function renderEvolutionChain(species) {
   const evolutionChain = species.evolution_chain.url;

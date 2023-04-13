@@ -41,7 +41,7 @@ h1 {
 
 .poke-container {
 	position: absolute;
-	top: 25%;
+	top: 35%;
 	display: flex;
 	flex-wrap: wrap;
 	align-items: space-between;
@@ -51,13 +51,23 @@ h1 {
 	
 
 }
+.data-poke-conteiner{
+	background-color: #e0e0e0;
+	border-radius: 30px;
+	box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
+	margin: 10px;
+	padding: 30px;
+	text-align: center;
+	outline: solid black 1.5px;
+}
+
 
 .pokemon {
 	background-color: #e0e0e0;
-	border-radius: 20px;
+	border-radius: 30px;
 	box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
 	margin: 10px;
-	padding: 20px;
+	padding: 5%;
 	text-align: center;
 	outline: solid black 1.5px;
 }
