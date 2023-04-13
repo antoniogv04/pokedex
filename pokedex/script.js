@@ -1,30 +1,38 @@
 const poke_container = document.getElementById('poke_container');
 const pokeImg = document.querySelector('[data-poke-img]');
+let pokemons = [];
 const searchPokemon = event => {
     event.preventDefault();
     const { value } = event.target.pokemon;
-    fetch(`https://pokeapi.co/api/v2/pokemon/${value.toLowerCase()}`)
+    fetch(`https://pokeapi.co/api/v2/pokemon/${value.toLowerCase()}?language=es`)
         .then(data => data.json())
         .then(response => renderPokemonData(response))
         .catch(err => renderNotFound())
 }
 
+const searchInput = document.getElementById('searchInput');
+searchInput.addEventListener('input', searchPokemonByName);
+
 const pokemons_number = 151;
 const colors = {
-	fire: '#FDDFDF',
-	grass: '#DEFDE0',
-	electric: '#FCF7DE',
-	water: '#DEF3FD',
-	ground: '#f4e7da',
-	rock: '#d5d5d4',
-	fairy: '#fceaff',
-	poison: '#98d7a5',
-	bug: '#f8d5a3',
+	fire: '#F08030',
+	grass: '#78c850',
+	electric: '#F8D030',
+	water: '#6890F0',
+	ground: '#E0C068',
+	rock: '#B8A038',
+	fairy: '#EE99AC',
+	poison: '#A040A0',
+	bug: '#A8B820',
 	dragon: '#97b3e6',
-	psychic: '#eaeda1',
-	flying: '#F5F5F5',
-	fighting: '#E6E0D4',
-	normal: '#F5F5F5'
+	psychic: '#F85888',
+	flying: '#A890F0',
+	fighting: '#C03028',
+	normal: '#A8A878',
+	steel: '#B8B8D0',
+	ice: '#98D8D8',
+	ghost: '#705898'
+
 };
 const main_types = Object.keys(colors);
 
@@ -35,9 +43,10 @@ const fetchPokemons = async () => {
 };
 
 const getPokemon = async id => {
-	const url = `https://pokeapi.co/api/v2/pokemon/${id}`;
+	const url = `https://pokeapi.co/api/v2/pokemon/${id}?language=es`;
 	const res = await fetch(url);
 	const pokemon = await res.json();
+	pokemons.push(pokemon);
 	createPokemonCard(pokemon);
 };
 
@@ -45,13 +54,21 @@ function createPokemonCard(pokemon) {
 	const pokemonEl = document.createElement('div');
 	pokemonEl.classList.add('pokemon');
 
-	const poke_types = pokemon.types.map(type => type.type.name);
-	const type = main_types.find(type => poke_types.indexOf(type) > -1);
-	const name = pokemon.name[0].toUpperCase() + pokemon.name.slice(1);
-	const color = colors[type];
-	const tipo = document.createElement('spa');
+	pokemonEl.addEventListener('click', () => {
+		window.location.href = `pokemon.html?id=${pokemon.id}`;
+	});
 	
-	tipo.style.backgroundColor = color;
+
+	const poke_types = pokemon.types.map(type => type.type.name);
+	const types = poke_types.map(type => {
+		
+	});
+	const type = main_types.find(type => types.indexOf(type) > -1);
+	const typeHTML = poke_types.map(
+		type => `<small class="type rounded" style="background-color: ${colors[type]}"><span>${type}</span></small>`
+	).join('');
+
+	const name = pokemon.name[0].toUpperCase() + pokemon.name.slice(1);
 
 	const pokeInnerHTML = `
         <div class="img-container">
@@ -64,35 +81,30 @@ function createPokemonCard(pokemon) {
 							.toString()
 							.padStart(3, '0')}</span>
             <h3 class="name">${name}</h3>
-            <small class="type"><span>${type}</span></small>
+            ${typeHTML}
         </div>
     `;
 
 	pokemonEl.innerHTML = pokeInnerHTML;
+	
 
 	poke_container.appendChild(pokemonEl);
+	
+}
+function searchPokemonByName() {
+    const searchText = searchInput.value.toLowerCase();
+    const filteredPokemons = pokemons.filter(pokemon => pokemon.name.includes(searchText));
+    poke_container.innerHTML = '';
+    if (searchText === '') {
+        pokemons.forEach(pokemon => {
+            createPokemonCard(pokemon);
+        });
+    } else {
+        filteredPokemons.forEach(pokemon => {
+            createPokemonCard(pokemon);
+        });
+    }
 }
 
+
 fetchPokemons();
-
-
-
-
-
-
-
-
-
-
-// SOCIAL PANEL JS
-const floating_btn = document.querySelector('.floating-btn');
-const close_btn = document.querySelector('.close-btn');
-const social_panel_container = document.querySelector('.social-panel-container');
-
-floating_btn.addEventListener('click', () => {
-	social_panel_container.classList.toggle('visible')
-});
-
-close_btn.addEventListener('click', () => {
-	social_panel_container.classList.remove('visible')
-});
