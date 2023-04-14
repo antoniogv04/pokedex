@@ -1,0 +1,147 @@
+@font-face {
+    font-family: letrapokemon;
+    src: url("../fuentes/Pokemon\ Solid.ttf");
+}
+
+* {
+	box-sizing: border-box;
+}
+a:link, a:visited, a:active {
+    text-decoration:none
+}
+
+#titulo{
+	font-size: 45px;
+    font-family: letrapokemon, serif;
+	color: rgb(255 204 0);
+	-webkit-text-stroke: 3px rgb(0 117 190);
+}
+body {
+	background-image: url("../fotos/fondo.png");
+	
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin: 0;
+}
+#menu{
+	background-color: rgba(43, 43, 43, 0.993);
+	position: absolute;
+	top: 0%;
+	height:250px;
+  width: 100%;
+	text-align: center;
+	vertical-align: middle;
+	
+
+	
+}
+#evoluciones{
+	border-radius: 30px;
+	background-color: #e0e0e0;
+	box-shadow: 0 3px 15px rgb(100 100 100);
+	margin: 10px;
+	padding: 30px;
+	text-align: center;
+}
+
+h1 {
+	letter-spacing: 3px;
+}
+
+.poke-container {
+	position: absolute;
+	top: 35%;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: space-between;
+	justify-content: center;
+	margin: 0 auto;
+	max-width: 1200px;
+	
+
+}
+.data-poke-conteiner{
+	background-color: #e0e0e0fd;
+	border-radius: 30px;
+	box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
+	margin: 10px;
+	padding: 30px;
+	text-align: center;
+	outline: solid black 1.5px;
+}
+.evolution-chain{
+	border-radius: 30px;
+	box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
+	margin: 10px;
+	padding: 30px;
+	text-align: center;
+	
+}
+
+
+.pokemon {
+	background-color: #e0e0e0;
+	border-radius: 30px;
+	box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
+	margin: 10px;
+	padding: 5%;
+	text-align: center;
+	outline: solid black 1.5px;
+}
+
+.pokemon .img-container {
+	background-color: rgba(255, 255, 255, 0.6);
+	border-radius: 50%;
+	width: 120px;
+	height: 120px;
+	text-align: center;
+}
+
+.pokemon .img-container img {
+	margin-top: 20px;
+	max-width: 90%;
+}
+
+.pokemon .info {
+	margin-top: 20px;
+}
+
+.pokemon .number {
+	background-color: rgba(0, 0, 0, 0.1);
+	border-radius: 10px;
+	font-size: 0.8em;
+	padding: 5px 10px;
+}
+
+.pokemon .name {
+	margin: 15px 0 7px;
+	letter-spacing: 1px;
+}
+
+.type.rounded {
+    border-radius: 15px;
+	outline: solid black 1.5px;
+}
+
+.type {
+    color: #fff;
+    font-size: 55%;
+    text-transform: capitalize;
+	display: inline-block;
+  	padding: 5px 10px;
+	margin-right: 5px;
+	text-transform: uppercase;
+  }
+  
+.evolution-chain{
+	background-color: #e0e0e0;
+}
+#info_evolution{
+	position: relative;
+	right: 50px;
+	padding: 20px;
+}
+
